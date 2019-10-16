@@ -1,0 +1,18 @@
+body {
+  /* font-family: 'Mansalva', cursive; */
+  font-family: "Gochi Hand", cursive;
+  font-family: "Patrick Hand", cursive;
+}
+
+table td {
+  border: 1px solid rgb(201, 199, 199);
+  min-width: 20px;
+}
+table tr {
+  height: 20px;
+}
+
+#drawable-area {
+  padding: 20px;
+  overflow: hidden;
+}
