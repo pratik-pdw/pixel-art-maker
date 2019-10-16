@@ -6,8 +6,6 @@ import {
   undoChanges,
   toggleEraser
 } from "./controllers";
-import html2canvas from "html2canvas";
-// import { drawOnGrid } from "./controllers";
 
 // Div/Form Elements to add Event Listeners Onto
 const drawableArea = document.getElementById("drawable-area");
