@@ -9,6 +9,17 @@ const gridToolsSaveables = document.getElementById("grid-tools-saveables");
 
 const makeGrid = (element, canvasConfig) => {
 
+
+  if(canvasConfig.width === 0 || canvasConfig.height === 0){
+    alert("Canvas size cannot be 0 x 0");
+    return;
+  }
+
+  if(canvasConfig.width < 0 || canvasConfig.height < 0){
+    alert("Canvas size cannot be negative");
+    return;
+  }
+
   if(canvasConfig.width === '' || canvasConfig.height === ''){
     alert("Kindly enter appropriate width and height values");
     return;
