@@ -5,7 +5,7 @@ import {
   drawOnGrid,
   undoChanges,
   toggleEraser
-} from "./controllers";
+} from "./controllers.mjs";
 
 // Div/Form Elements to add Event Listeners Onto
 const drawableArea = document.getElementById("drawable-area");
