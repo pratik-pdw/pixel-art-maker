@@ -1,13 +1,19 @@
 let canvas;
 let canvasBgColor;
 let colorPicker;
-console.log(colorPicker);
 let isCanvasPresent = false;
 let isEraserActive = false;
-const gridToolsSaveables = document.getElementById("grid-tools-saveables");
 let state = [];
 
+const gridToolsSaveables = document.getElementById("grid-tools-saveables");
+
 const makeGrid = (element, canvasConfig) => {
+
+  if(canvasConfig.width === '' || canvasConfig.height === ''){
+    alert("Kindly enter appropriate width and height values");
+    return;
+  }
+
   if (canvasConfig.width > 45 || canvasConfig.height > 45) {
     alert("Canvas Size is limited to 45x45");
     return;
@@ -20,13 +26,18 @@ const makeGrid = (element, canvasConfig) => {
   }
   isCanvasPresent = true;
 
+  // Create a table element
   const table = document.createElement("table");
   table.setAttribute("id", "drawable-canvas");
 
+  // Loop to insert td into tr
   for (let i = 0; i < canvasConfig.width; i++) {
+    // Create a tableRow element
     let tableRow = document.createElement("tr");
 
     for (let j = 0; j < canvasConfig.height; j++) {
+
+      // Create a table Cell element
       let tableCell = document.createElement("td");
       tableCell.style.background = canvasConfig.canvasBgColor;
       tableRow.appendChild(tableCell);
@@ -36,16 +47,23 @@ const makeGrid = (element, canvasConfig) => {
   table.style.background = canvasConfig.canvasBgColor;
   canvas = table;
   canvasBgColor = canvasConfig.canvasBgColor;
+  
   element.appendChild(table);
   gridToolsSaveables.classList.remove("invisible");
   gridToolsSaveables.classList.add("visible");
+  return;
 };
 
 const removeGrid = () => {
-  canvas.remove();
-  isCanvasPresent = false;
-  gridToolsSaveables.classList.remove("visible");
-  gridToolsSaveables.classList.add("invisible");
+  if(confirm("Do you want to delete the canvas?")){
+    canvas.remove();
+    isCanvasPresent = false;
+    state = [];
+    gridToolsSaveables.classList.remove("visible");
+    gridToolsSaveables.classList.add("invisible");
+    return;
+  }
+  return; 
 };
 
 const drawOnGrid = (e, brushColor) => {

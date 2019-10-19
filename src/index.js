@@ -22,7 +22,7 @@ const brushColor = document.getElementById("brush-color");
 
 gridSizeForm.addEventListener("submit", e => {
   e.preventDefault();
-  console.log(e.target.canvasBgColor.value);
+
   let canvasConfig = {
     width: e.target.width.value,
     height: e.target.height.value,
