@@ -18,7 +18,7 @@ $("#tool-save").on("click", function() {
         uri = img.replace(/^data:image\/[^;]/, "data:application/octet-stream");
 
       let name = prompt("What do you want to call your art as ??");
-      if (name === "") {
+      if (name === "" || name === null) {
         name = "artwork";
       }
       saveAs(uri, `${name}.png`);
